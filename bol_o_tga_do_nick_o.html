@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bolão Oficial do The Game Awards 2026 organizado pelo Nickão. Faça seus palpites nas 30 categorias!">
+    <title>Bolão TGA do Nickão • 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel (Títulos TGA) & Plus Jakarta Sans (UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        tga: {
+                            bg: '#090a0f',
+                            card: '#12141d',
+                            cardHover: '#191c28',
+                            border: '#262938',
+                            gold: '#d4af37',
+                            goldLight: '#f5d77f',
+                            goldDark: '#997a15',
+                            accent: '#e5a93c'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 10%, rgba(212, 175, 55, 0.08) 0%, transparent 35%),
+                radial-gradient(circle at 85% 25%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                linear-gradient(180deg, #090a0f 0%, #0d0f17 100%);
+            background-attachment: fixed;
+        }
+
+        /* Watermark TGA Statue Background */
+        .tga-statue-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -48%);
+            width: min(72vw, 620px);
+            height: min(85vh, 720px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.06;
+            filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.35));
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #fff6d6 0%, #d4af37 50%, #997a15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #b38f22 100%);
+        }
+
+        .goty-card-glow {
+            box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.18), inset 0 0 20px rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+        }
+
+        .nominee-selected {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.06) 100%);
+            border-color: #d4af37 !important;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .winner-official {
+            border-color: #10b981 !important;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.18) 0%, rgba(16, 185, 129, 0.04) 100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262938;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-tga-gold selection:text-black relative overflow-x-hidden">
+
+    <!-- TGA Iconic Winged Statue Watermark (Fixed Background) -->
+    <div class="tga-statue-watermark flex items-center justify-center" aria-hidden="true">
+        <svg viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <defs>
+                <linearGradient id="tgaGoldGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FFF6D6"/>
+                    <stop offset="45%" stop-color="#D4AF37"/>
+                    <stop offset="100%" stop-color="#7A5C08"/>
+                </linearGradient>
+            </defs>
+            <!-- Geometric Winged Crown / Halo Rays -->
+            <circle cx="200" cy="190" r="135" stroke="url(#tgaGoldGrad)" stroke-width="1.5" stroke-dasharray="6 6"/>
+            <circle cx="200" cy="190" r="105" stroke="url(#tgaGoldGrad)" stroke-width="1"/>
+            <!-- Left Geometric Wing -->
+            <path d="M190 230 L45 95 L95 165 L55 150 L115 215 L75 210 L145 260 L115 265 L175 305 Z" fill="url(#tgaGoldGrad)" opacity="0.85"/>
+            <path d="M190 205 L80 65 L140 155 Z" fill="url(#tgaGoldGrad)" opacity="0.6"/>
+            <!-- Right Geometric Wing -->
+            <path d="M210 230 L355 95 L305 165 L345 150 L285 215 L325 210 L255 260 L285 265 L225 305 Z" fill="url(#tgaGoldGrad)" opacity="0.85"/>
+            <path d="M210 205 L320 65 L260 155 Z" fill="url(#tgaGoldGrad)" opacity="0.6"/>
+            <!-- Stylized Ascending Figure & Globe Held Aloft -->
+            <polygon points="200,45 222,78 200,110 178,78" fill="url(#tgaGoldGrad)"/>
+            <circle cx="200" cy="155" r="16" fill="url(#tgaGoldGrad)"/>
+            <!-- Arms Raised Holding the Crown -->
+            <path d="M182 175 L155 110 L178 95 L192 160 Z" fill="url(#tgaGoldGrad)"/>
+            <path d="M218 175 L245 110 L222 95 L208 160 Z" fill="url(#tgaGoldGrad)"/>
+            <!-- Torso & Flowing Geometric Pedestal -->
+            <polygon points="175,180 225,180 212,310 188,310" fill="url(#tgaGoldGrad)"/>
+            <polygon points="188,315 212,315 230,485 170,485" fill="url(#tgaGoldGrad)" opacity="0.9"/>
+            <!-- Base Steps -->
+            <rect x="145" y="485" width="110" height="16" rx="3" fill="url(#tgaGoldGrad)"/>
+            <rect x="125" y="505" width="150" height="22" rx="4" fill="url(#tgaGoldGrad)"/>
+            <text x="200" y="550" text-anchor="middle" fill="url(#tgaGoldGrad)" font-family="Cinzel, serif" font-weight="800" font-size="18" letter-spacing="8">THE GAME AWARDS</text>
+        </svg>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Top Navigation & Hero Header -->
+    <header class="border-b border-tga-border bg-tga-bg/90 backdrop-blur-md sticky top-0 z-40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
+            <!-- Brand -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black shadow-lg shadow-tga-gold/25 border border-white/20">
+                    <!-- Mini TGA Statue SVG Logo -->
+                    <svg viewBox="0 0 64 64" class="w-8 h-8" fill="currentColor">
+                        <path d="M32 4 L38 12 L32 20 L26 12 Z"/>
+                        <path d="M30 24 L8 10 L16 24 L10 24 L22 34 L30 38 Z"/>
+                        <path d="M34 24 L56 10 L48 24 L54 24 L42 34 L34 38 Z"/>
+                        <polygon points="27,24 37,24 35,48 29,48"/>
+                        <rect x="20" y="49" width="24" height="5" rx="1.5"/>
+                        <rect x="16" y="55" width="32" height="5" rx="1.5"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-tga-gold/15 text-tga-gold border border-tga-gold/30">10 DEZ 2026 • 21:30 BRT</span>
+                        <span id="betting-status-badge" class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                            <i class="ph-fill ph-lock-open"></i> Apostas Abertas
+                        </span>
+                        <span id="sync-badge" class="hidden sm:flex text-[10px] font-medium px-2 py-0.5 rounded bg-white/5 text-gray-300 border border-white/10 items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Tempo Real
+                        </span>
+                    </div>
+                    <h1 class="font-display font-extrabold text-lg sm:text-2xl tracking-wider gold-gradient-text uppercase">
+                        BOLÃO TGA DO NICKÃO
+                    </h1>
+                </div>
+            </div>
+
+            <!-- User Profile & Quick Stats -->
+            <div class="flex items-center gap-2.5 sm:gap-3 ml-auto">
+                <!-- Countdown / Lock Timer Pill -->
+                <div class="hidden xl:flex items-center gap-2.5 bg-tga-card border border-tga-border px-3.5 py-2 rounded-xl">
+                    <i class="ph-fill ph-timer text-tga-gold text-lg"></i>
+                    <div>
+                        <div class="text-[10px] text-gray-400 uppercase tracking-wider leading-none">Encerramento das Apostas</div>
+                        <div id="countdown-timer" class="text-xs font-mono font-bold text-tga-goldLight mt-0.5">Calculando...</div>
+                    </div>
+                </div>
+
+                <!-- Progress Pill -->
+                <div class="hidden md:flex items-center gap-3 bg-tga-card border border-tga-border px-3.5 py-2 rounded-xl">
+                    <div class="text-right">
+                        <div class="text-[11px] text-gray-400 font-medium">Seus Palpites</div>
+                        <div class="text-xs font-bold text-white"><span id="header-progress-count">0</span>/30 categorias</div>
+                    </div>
+                    <div class="w-20 h-2 bg-gray-800 rounded-full overflow-hidden">
+                        <div id="header-progress-bar" class="h-full gold-gradient-bg transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Nickname + PIN Auth Button -->
+                <button onclick="openProfileModal()" class="flex items-center gap-2.5 bg-tga-card hover:bg-tga-cardHover border border-tga-gold/40 hover:border-tga-gold px-3.5 py-2 rounded-xl transition-all shadow-sm">
+                    <div class="w-7 h-7 rounded-lg bg-tga-gold/20 border border-tga-gold/40 flex items-center justify-center text-tga-gold font-bold text-xs" id="user-avatar-letter">
+                        ?
+                    </div>
+                    <div class="text-left">
+                        <div class="text-[10px] text-gray-400 leading-none flex items-center gap-1" id="user-pin-status">
+                            <i class="ph-fill ph-key text-tga-gold"></i> Entrar / Trocar
+                        </div>
+                        <div class="text-xs sm:text-sm font-bold text-white truncate max-w-[110px] sm:max-w-[140px]" id="current-user-name">Identificar-se</div>
+                    </div>
+                    <i class="ph-bold ph-caret-down text-gray-400 text-xs"></i>
+                </button>
+
+                <!-- Share Button -->
+                <button onclick="openShareModal()" class="flex items-center gap-2 gold-gradient-bg hover:brightness-110 text-black font-bold text-xs sm:text-sm px-3.5 py-2.5 rounded-xl shadow-lg shadow-tga-gold/10 transition-all">
+                    <i class="ph-bold ph-share-network text-base"></i>
+                    <span class="hidden sm:inline">Compartilhar</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between border-t border-tga-border/60 pt-1">
+            <div class="flex space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar">
+                <button onclick="switchMainTab('palpites')" id="tab-btn-palpites" class="main-tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-tga-gold text-tga-gold flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-fill ph-check-square-offset text-base"></i>
+                    Meus Palpites (30)
+                </button>
+                <button onclick="switchMainTab('ranking')" id="tab-btn-ranking" class="main-tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-gray-400 hover:text-gray-200 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-fill ph-ranking text-base"></i>
+                    Ranking Geral
+                    <span id="ranking-count-badge" class="px-1.5 py-0.5 text-[10px] rounded-full bg-tga-border text-gray-300">0</span>
+                </button>
+                <button onclick="switchMainTab('regras')" id="tab-btn-regras" class="main-tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-gray-400 hover:text-gray-200 flex items-center gap-2 whitespace-nowrap transition-all">
+                    <i class="ph-fill ph-info text-base"></i>
+                    Regras & Pontos
+                </button>
+            </div>
+
+            <!-- Protected Admin Mode Button (Gabarito do Nickão) -->
+            <div class="flex items-center gap-2 py-1.5 pl-2">
+                <button 
+                    onclick="handleAdminAccessClick()" 
+                    id="admin-access-btn"
+                    class="px-3 py-1.5 rounded-lg border border-tga-border bg-tga-card hover:border-tga-gold/50 text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1.5 transition-all"
+                    title="Acesso exclusivo do Nickão com senha para definir o gabarito e trancar apostas"
+                >
+                    <i id="admin-btn-icon" class="ph-fill ph-lock-key text-tga-gold"></i>
+                    <span class="hidden sm:inline" id="admin-btn-label">Painel do Nickão (Admin)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Betting Locked Global Alert Banner -->
+    <div id="locked-banner" class="hidden bg-rose-950/90 border-b border-rose-500/40 px-4 py-2.5 text-center relative z-30">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm text-rose-200">
+            <span class="font-bold flex items-center gap-1.5 text-rose-400">
+                <i class="ph-fill ph-lock-key text-base"></i> PALPITES ENCERRADOS:
+            </span>
+            <span id="locked-banner-reason">As apostas para o Bolão TGA do Nickão estão trancadas! Acompanhe os vencedores oficiais e a atualização do Ranking ao vivo.</span>
+        </div>
+    </div>
+
+    <!-- Admin Control Bar (Visible only after correct Admin Password) -->
+    <div id="admin-banner" class="hidden bg-emerald-950/95 border-b border-emerald-500/50 px-4 py-3 relative z-30 shadow-lg">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-emerald-100">
+            <div class="flex items-center gap-2 text-center md:text-left">
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-500 text-black font-extrabold text-xs uppercase tracking-wider flex items-center gap-1 flex-shrink-0">
+                    <i class="ph-fill ph-shield-star"></i> ADMIN NICKÃO ATIVO
+                </span>
+                <span>Clique em qualquer indicado abaixo para marcar o <strong>Vencedor Oficial do TGA</strong>.</span>
+            </div>
+            <div class="flex items-center gap-2.5 flex-wrap justify-center">
+                <button 
+                    onclick="toggleManualBettingLock()" 
+                    id="admin-lock-toggle-btn"
+                    class="px-3.5 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all bg-rose-600 hover:bg-rose-500 text-white shadow"
+                >
+                    <i class="ph-bold ph-lock-key"></i>
+                    <span id="admin-lock-btn-text">Trancar Apostas Agora</span>
+                </button>
+                <button 
+                    onclick="exitAdminMode()" 
+                    class="px-3 py-1.5 rounded-xl bg-black/40 hover:bg-black/60 border border-emerald-500/40 text-emerald-200 text-xs font-semibold flex items-center gap-1"
+                >
+                    <i class="ph-bold ph-sign-out"></i> Sair do Modo Admin
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 relative z-10">
+
+        <!-- ================= VIEW 1: MEUS PALPITES ================= -->
+        <section id="view-palpites" class="space-y-6">
+            
+            <!-- Top Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Card 1: Progresso -->
+                <div class="bg-tga-card/90 backdrop-blur-sm border border-tga-border rounded-2xl p-4 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-gray-400 font-medium">Categorias Votadas</div>
+                        <div class="text-2xl font-extrabold text-white mt-1"><span id="stat-voted">0</span> <span class="text-sm font-normal text-gray-500">/ 30</span></div>
+                        <div id="stat-pending-text" class="text-[11px] text-tga-gold mt-1 font-medium">Faltam 30 categorias</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-tga-gold/10 border border-tga-gold/30 flex items-center justify-center text-tga-gold">
+                        <i class="ph-fill ph-List-Checks text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2: Seu Palpite GOTY -->
+                <div class="bg-tga-card/90 backdrop-blur-sm border border-tga-gold/40 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="min-w-0 pr-2">
+                        <div class="text-xs text-tga-gold font-bold uppercase tracking-wider flex items-center gap-1">
+                            <i class="ph-fill ph-crown"></i> Seu GOTY (10 pts)
+                        </div>
+                        <div id="stat-goty-pick" class="text-sm sm:text-base font-bold text-white mt-1 truncate">Ainda não escolhido</div>
+                        <div class="text-[11px] text-gray-400 mt-1">Principal categoria da noite</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl gold-gradient-bg flex-shrink-0 flex items-center justify-center text-black shadow-md shadow-tga-gold/20">
+                        <i class="ph-fill ph-trophy text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3: Sua Pontuação Atual -->
+                <div class="bg-tga-card/90 backdrop-blur-sm border border-tga-border rounded-2xl p-4 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-gray-400 font-medium">Seus Pontos Atuais</div>
+                        <div class="text-2xl font-extrabold text-emerald-400 mt-1"><span id="stat-user-points">0</span> <span class="text-xs font-normal text-gray-400">/ 155 máx</span></div>
+                        <div id="stat-user-hits" class="text-[11px] text-gray-400 mt-1">0 acertos confirmados</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                        <i class="ph-fill ph-star-four text-2xl"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4: Progresso do Evento (Gabarito) -->
+                <div class="bg-tga-card/90 backdrop-blur-sm border border-tga-border rounded-2xl p-4 flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-gray-400 font-medium">Vencedores Revelados</div>
+                        <div class="text-2xl font-extrabold text-white mt-1"><span id="stat-official-count">0</span> <span class="text-sm font-normal text-gray-500">/ 30</span></div>
+                        <div class="text-[11px] text-gray-400 mt-1">Gabarito Oficial TGA 2026</div>
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                        <i class="ph-fill ph-seal-check text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter & Search Bar -->
+            <div class="bg-tga-card/90 backdrop-blur-sm border border-tga-border rounded-2xl p-3.5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sticky top-[105px] z-20 shadow-xl">
+                <!-- Category Group Filters -->
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 no-scrollbar">
+                    <button onclick="setCategoryFilter('all')" data-filter="all" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-gold text-black transition-all whitespace-nowrap">
+                        Todas (30)
+                    </button>
+                    <button onclick="setCategoryFilter('pending')" data-filter="pending" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-bg text-gray-300 hover:text-white border border-tga-border transition-all whitespace-nowrap">
+                        Pendentes
+                    </button>
+                    <button onclick="setCategoryFilter('main')" data-filter="main" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-bg text-gray-300 hover:text-white border border-tga-border transition-all whitespace-nowrap">
+                        Principais & Direção
+                    </button>
+                    <button onclick="setCategoryFilter('genre')" data-filter="genre" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-bg text-gray-300 hover:text-white border border-tga-border transition-all whitespace-nowrap">
+                        Gêneros
+                    </button>
+                    <button onclick="setCategoryFilter('indie')" data-filter="indie" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-bg text-gray-300 hover:text-white border border-tga-border transition-all whitespace-nowrap">
+                        Indie, Comunidade & Adaptação
+                    </button>
+                    <button onclick="setCategoryFilter('esports')" data-filter="esports" class="cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-bg text-gray-300 hover:text-white border border-tga-border transition-all whitespace-nowrap">
+                        Esports & Criadores
+                    </button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative min-w-[240px]">
+                    <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input 
+                        type="text" 
+                        id="search-input"
+                        oninput="handleSearch(this.value)"
+                        placeholder="Buscar categoria ou jogo (ex: GTA VI)..." 
+                        class="w-full bg-tga-bg border border-tga-border focus:border-tga-gold rounded-xl pl-9 pr-8 py-1.5 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none transition-colors"
+                    >
+                    <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                        <i class="ph-fill ph-x-circle"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div id="categories-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+        </section>
+
+        <!-- ================= VIEW 2: RANKING GERAL ================= -->
+        <section id="view-ranking" class="hidden space-y-6">
+            <div class="bg-tga-card border border-tga-border rounded-2xl p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-tga-border">
+                    <div>
+                        <h2 class="font-display text-xl sm:text-2xl font-bold gold-gradient-text flex items-center gap-2">
+                            <i class="ph-fill ph-trophy text-tga-gold"></i>
+                            RANKING GERAL DO BOLÃO
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-400 mt-1">
+                            Pontuação atualizada em tempo real: <strong>10 pontos</strong> para Game of the Year e <strong>5 pontos</strong> para as demais 29 categorias.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="openProfileModal()" class="px-3.5 py-2 rounded-xl bg-tga-bg hover:bg-tga-cardHover border border-tga-border text-xs font-semibold text-gray-200 flex items-center gap-1.5 transition-all">
+                            <i class="ph ph-user-Switch text-tga-gold text-base"></i> Alterar Meu Apelido
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Podium Top 3 -->
+                <div id="ranking-podium" class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                    <!-- Rendered via JS -->
+                </div>
+
+                <!-- Full Leaderboard Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-tga-border text-[11px] uppercase tracking-wider text-gray-400">
+                                <th class="py-3.5 px-4">Pos.</th>
+                                <th class="py-3.5 px-4">Participante (Nick)</th>
+                                <th class="py-3.5 px-4">Palpite GOTY (10 pts)</th>
+                                <th class="py-3.5 px-4 text-center">Preenchimento</th>
+                                <th class="py-3.5 px-4 text-center">Acertos Exatos</th>
+                                <th class="py-3.5 px-4 text-right">Pontuação</th>
+                                <th class="py-3.5 px-4 text-right">Cartão</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-table-body" class="divide-y divide-tga-border/50 text-sm">
+                            <!-- Rendered via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIEW 3: REGRAS & SISTEMA DE PONTOS ================= -->
+        <section id="view-regras" class="hidden space-y-6">
+            <div class="bg-tga-card border border-tga-border rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto space-y-6">
+                <div class="flex items-center gap-3 border-b border-tga-border pb-4">
+                    <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black">
+                        <i class="ph-fill ph-scroll text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display text-xl sm:text-2xl font-bold gold-gradient-text">REGRAS • BOLÃO TGA DO NICKÃO</h2>
+                        <p class="text-xs sm:text-sm text-gray-400">Cerimônia Oficial: 10 de Dezembro de 2026 às 21:30 (Horário de Brasília)</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-tga-bg border border-tga-gold/40 rounded-xl p-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-tga-gold">Categoria Principal</div>
+                        <div class="text-3xl font-extrabold text-white my-1">10 Pontos</div>
+                        <p class="text-xs text-gray-400">Acertar o grande vencedor de <strong>Game of the Year (GOTY)</strong> garante 10 pontos no ranking.</p>
+                    </div>
+                    <div class="bg-tga-bg border border-tga-border rounded-xl p-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-gray-300">Demais 29 Categorias</div>
+                        <div class="text-3xl font-extrabold text-white my-1">5 Pontos <span class="text-xs font-normal text-gray-400">/ cada</span></div>
+                        <p class="text-xs text-gray-400">Todas as outras 29 categorias oficiais valem 5 pontos por cada acerto certeiro.</p>
+                    </div>
+                    <div class="bg-tga-bg border border-emerald-500/30 rounded-xl p-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-emerald-400">Pontuação Máxima</div>
+                        <div class="text-3xl font-extrabold text-emerald-400 my-1">155 Pontos</div>
+                        <p class="text-xs text-gray-400">10 pts (GOTY) + 145 pts (29 × 5 pts). Em caso de empate em pontos, vence quem acertou o GOTY!</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+                    <h3 class="font-bold text-white text-base flex items-center gap-2">
+                        <i class="ph-fill ph-shield-check text-tga-gold"></i> Segurança, Identificação por PIN e Bloqueio
+                    </h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li><strong>Acesso Rápido por Nickname + PIN de 4 dígitos:</strong> Você não precisa criar conta com e-mail. Basta escolher seu <strong>Nickname</strong> (ex: <em>Nickao</em>) e um <strong>PIN numérico de 4 dígitos</strong>. Se você abrir o site no celular ou em outro PC, é só digitar o mesmo Nick e PIN para recuperar seus palpites!</li>
+                        <li><strong>Proteção contra Alterações:</strong> Ninguém consegue editar a cartela de outro participante sem saber o PIN de 4 dígitos cadastrado.</li>
+                        <li><strong>Bloqueio Automático na Hora do Evento:</strong> Todos os palpites são trancados automaticamente no dia <strong>10/12/2026 às 21:30 (BRT)</strong> ou a qualquer momento pelo <strong>Painel Admin do Nickão</strong> antes do início da transmissão.</li>
+                        <li><strong>Apuração Ao Vivo:</strong> Durante a live do TGA, o Nickão marca os vencedores oficiais com senha de administrador e o Ranking Geral recalcula os pontos de todo mundo em tempo real.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= MODAL 1: IDENTIFICAÇÃO (NICKNAME + PIN DE 4 DÍGITOS) ================= -->
+    <div id="profile-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-tga-card border border-tga-gold/40 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-5">
+            <div class="flex items-center justify-between border-b border-tga-border pb-3">
+                <h3 class="font-display font-bold text-lg gold-gradient-text flex items-center gap-2">
+                    <i class="ph-fill ph-identification-badge text-tga-gold text-xl"></i> IDENTIFICAÇÃO DO PARTICIPANTE
+                </h3>
+                <button onclick="closeProfileModal()" class="text-gray-400 hover:text-white">
+                    <i class="ph ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <div class="bg-tga-gold/10 border border-tga-gold/30 rounded-xl p-3 text-xs text-gray-200 leading-relaxed">
+                <strong class="text-tga-goldLight block mb-0.5"><i class="ph-fill ph-key"></i> Como funciona (Sem E-mail):</strong>
+                Se for sua primeira vez, digite seu <strong>Nickname</strong> e crie um <strong>PIN de 4 números</strong>. Já tem cartela salva? Digite seu Nick e o mesmo PIN para carregar seus palpites em qualquer aparelho!
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Seu Nickname (Ex: Nickao, GuiGamer)</label>
+                    <input 
+                        type="text" 
+                        id="nickname-input" 
+                        maxlength="24"
+                        placeholder="Digite seu Nick..." 
+                        class="w-full bg-tga-bg border border-tga-border focus:border-tga-gold rounded-xl px-4 py-3 text-white font-semibold focus:outline-none"
+                    >
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-1.5">Seu PIN Secreto (4 Dígitos Numéricos)</label>
+                    <input 
+                        type="password" 
+                        id="pin-input" 
+                        inputmode="numeric"
+                        maxlength="4"
+                        placeholder="•••• (Ex: 1234)" 
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 4)"
+                        class="w-full bg-tga-bg border border-tga-border focus:border-tga-gold rounded-xl px-4 py-3 text-white font-mono text-lg tracking-[0.5em] text-center focus:outline-none"
+                    >
+                    <p id="profile-error-msg" class="hidden text-xs font-semibold text-rose-400 mt-2 flex items-center gap-1">
+                        <i class="ph-fill ph-warning-circle"></i> <span>PIN incorreto para este Nickname!</span>
+                    </p>
+                </div>
+
+                <div class="bg-tga-bg/70 border border-tga-border rounded-xl p-3 text-xs text-gray-400 flex items-center justify-between">
+                    <span>Cartela atual carregada:</span>
+                    <span id="modal-user-votes" class="font-bold text-tga-gold">0 / 30 categorias</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end gap-3 pt-2">
+                <button onclick="closeProfileModal()" class="px-4 py-2.5 rounded-xl border border-tga-border text-xs font-semibold text-gray-300 hover:bg-tga-bg">
+                    Fechar
+                </button>
+                <button onclick="authenticateOrRegisterNickPin()" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-black text-xs font-extrabold hover:brightness-110 flex items-center gap-1.5 shadow-lg shadow-tga-gold/15">
+                    <i class="ph-bold ph-sign-in"></i> Entrar / Salvar Cartela
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 1B: SENHA DO MODO ADMIN (EXCLUSIVO NICKÃO) ================= -->
+    <div id="admin-login-modal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-tga-card border border-emerald-500/40 rounded-2xl max-w-sm w-full p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-tga-border pb-3">
+                <h3 class="font-display font-bold text-base text-emerald-400 flex items-center gap-2">
+                    <i class="ph-fill ph-shield-star text-xl"></i> ACESSO ADMIN DO NICKÃO
+                </h3>
+                <button onclick="closeAdminLoginModal()" class="text-gray-400 hover:text-white">
+                    <i class="ph ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-gray-300 leading-relaxed">
+                Área restrita ao organizador para <strong>trancar/destrancar apostas</strong> e marcar o <strong>Gabarito Oficial</strong> ao vivo.
+            </p>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1.5">Senha do Administrador</label>
+                <input 
+                    type="password" 
+                    id="admin-password-input" 
+                    placeholder="Digite a senha do Nickão..." 
+                    onkeydown="if(event.key === 'Enter') verifyAdminPassword()"
+                    class="w-full bg-tga-bg border border-tga-border focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none"
+                >
+                <p id="admin-error-msg" class="hidden text-xs font-semibold text-rose-400 mt-1.5">
+                    Senha incorreta! Acesso exclusivo do organizador.
+                </p>
+            </div>
+
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button onclick="closeAdminLoginModal()" class="px-4 py-2 rounded-xl border border-tga-border text-xs font-semibold text-gray-300 hover:bg-tga-bg">
+                    Cancelar
+                </button>
+                <button onclick="verifyAdminPassword()" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-extrabold flex items-center gap-1.5">
+                    <i class="ph-bold ph-lock-key-open"></i> Liberar Painel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 2: COMPARTILHAR PALPITES ================= -->
+    <div id="share-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-tga-card border border-tga-border rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-tga-border pb-3">
+                <h3 class="font-display font-bold text-lg gold-gradient-text flex items-center gap-2">
+                    <i class="ph-fill ph-share-network text-tga-gold text-xl"></i> EXPORTAR MEUS PALPITES
+                </h3>
+                <button onclick="closeShareModal()" class="text-gray-400 hover:text-white">
+                    <i class="ph ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-gray-400">Copie o resumo abaixo para enviar no grupo do WhatsApp, Discord ou X:</p>
+
+            <textarea 
+                id="share-textarea" 
+                readonly 
+                rows="12" 
+                class="w-full bg-tga-bg border border-tga-border rounded-xl p-3.5 text-xs font-mono text-gray-200 focus:outline-none resize-none"
+            ></textarea>
+
+            <div class="flex items-center justify-end gap-3">
+                <button onclick="closeShareModal()" class="px-4 py-2.5 rounded-xl border border-tga-border text-xs font-semibold text-gray-300 hover:bg-tga-bg">
+                    Fechar
+                </button>
+                <button onclick="copyShareText()" class="px-5 py-2.5 rounded-xl gold-gradient-bg text-black text-xs font-bold flex items-center gap-2 hover:brightness-110">
+                    <i class="ph-bold ph-copy"></i> Copiar para Área de Transferência
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL 3: INSPECIONAR CARTÃO DO PARTICIPANTE ================= -->
+    <div id="inspect-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-tga-card border border-tga-border rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl">
+            <div class="flex items-center justify-between border-b border-tga-border p-5">
+                <div>
+                    <h3 id="inspect-modal-title" class="font-display font-bold text-lg gold-gradient-text">PALPITES DO PARTICIPANTE</h3>
+                    <p id="inspect-modal-subtitle" class="text-xs text-gray-400 mt-0.5">0 pontos • 0/30 categorias</p>
+                </div>
+                <button onclick="closeInspectModal()" class="text-gray-400 hover:text-white">
+                    <i class="ph ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <div id="inspect-modal-list" class="p-5 overflow-y-auto space-y-2.5 divide-y divide-tga-border/40 text-xs sm:text-sm">
+                <!-- Populated dynamically -->
+            </div>
+
+            <div class="border-t border-tga-border p-4 flex justify-end">
+                <button onclick="closeInspectModal()" class="px-4 py-2 rounded-xl bg-tga-bg border border-tga-border text-xs font-semibold text-gray-200 hover:bg-tga-cardHover">
+                    Fechar Visualização
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-tga-border/60 py-6 mt-12 text-center text-xs text-gray-500 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div><strong>Bolão TGA do Nickão</strong> • The Game Awards 2026 (30 Categorias Oficiais)</div>
+            <div>Pontuação: <span class="text-tga-gold font-semibold">GOTY = 10 pts</span> | <span class="text-gray-300 font-semibold">Demais Categorias = 5 pts</span></div>
+        </div>
+    </footer>
+
+    <!-- ================= APPLICATION LOGIC & FIREBASE ================= -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // ============================================================================
+        // 1. DATASET OFICIAL: TODAS AS 30 CATEGORIAS DO THE GAME AWARDS 2026
+        // ============================================================================
+        const TGA_CATEGORIES = [
+            {
+                id: "goty",
+                title: "Game of the Year (GOTY)",
+                subtitle: "O melhor jogo do ano em todas as frentes criativas e técnicas",
+                points: 10,
+                group: "main",
+                icon: "ph-crown",
+                nominees: [
+                    { name: "007 First Light", studio: "IO Interactive" },
+                    { name: "Control Resonant", studio: "Remedy Entertainment" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Phantom Blade Zero", studio: "S-GAME" },
+                    { name: "Resident Evil Requiem", studio: "Capcom" },
+                    { name: "The Legend of Zelda: Ocarina of Time", studio: "Nintendo" }
+                ]
+            },
+            {
+                id: "game_direction",
+                title: "Best Game Direction",
+                subtitle: "Excelência em visão criativa e direção de design de jogo",
+                points: 5,
+                group: "main",
+                icon: "ph-compass-tool",
+                nominees: [
+                    { name: "Control Resonant", studio: "Remedy Entertainment" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Phantom Blade Zero", studio: "S-GAME" },
+                    { name: "Pragmata", studio: "Capcom" },
+                    { name: "Resident Evil Requiem", studio: "Capcom" }
+                ]
+            },
+            {
+                id: "narrative",
+                title: "Best Narrative",
+                subtitle: "Melhor roteiro, construção de mundo e desenvolvimento de história",
+                points: 5,
+                group: "main",
+                icon: "ph-book-open-text",
+                nominees: [
+                    { name: "007 First Light", studio: "IO Interactive" },
+                    { name: "Control Resonant", studio: "Remedy Entertainment" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Resident Evil Requiem", studio: "Capcom" },
+                    { name: "The Blood of Dawnwalker", studio: "Rebel Wolves" }
+                ]
+            },
+            {
+                id: "art_direction",
+                title: "Best Art Direction",
+                subtitle: "Conquista extraordinária em design visual e animação",
+                points: 5,
+                group: "main",
+                icon: "ph-palette",
+                nominees: [
+                    { name: "Control Resonant", studio: "Remedy Entertainment" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Mouse: P.I. For Hire", studio: "Fumi Games" },
+                    { name: "Phantom Blade Zero", studio: "S-GAME" },
+                    { name: "The Legend of Zelda: Ocarina of Time", studio: "Nintendo" }
+                ]
+            },
+            {
+                id: "score_music",
+                title: "Best Score and Music",
+                subtitle: "Trilha sonora original e composições musicais marcantes",
+                points: 5,
+                group: "main",
+                icon: "ph-music-notes",
+                nominees: [
+                    { name: "Ace Combat 8: Wings of Theve", studio: "Bandai Namco" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Mixtape", studio: "Beethoven & Dinosaur" },
+                    { name: "Phantom Blade Zero", studio: "S-GAME" },
+                    { name: "The Legend of Zelda: Ocarina of Time", studio: "Nintendo" }
+                ]
+            },
+            {
+                id: "audio_design",
+                title: "Best Audio Design",
+                subtitle: "Melhor ambientação sonora e efeitos de áudio imersivos",
+                points: 5,
+                group: "main",
+                icon: "ph-speaker-high",
+                nominees: [
+                    { name: "Ace Combat 8: Wings of Theve", studio: "Bandai Namco" },
+                    { name: "Control Resonant", studio: "Remedy Entertainment" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Resident Evil Requiem", studio: "Capcom" },
+                    { name: "Star Wars: Galactic Racer", studio: "Lucasfilm Games" }
+                ]
+            },
+            {
+                id: "performance",
+                title: "Best Performance",
+                subtitle: "Melhor atuação de voz, captura de movimento e interpretação",
+                points: 5,
+                group: "main",
+                icon: "ph-microphone-stage",
+                nominees: [
+                    { name: "Angela Sant'Albano", studio: "Resident Evil Requiem" },
+                    { name: "Liam McIntyre", studio: "Marvel's Wolverine" },
+                    { name: "Manni L. Perez", studio: "Grand Theft Auto VI" },
+                    { name: "Patrick Gibson", studio: "007 First Light" },
+                    { name: "Rahul Kohli", studio: "Saros" }
+                ]
+            },
+            {
+                id: "games_for_impact",
+                title: "Games for Impact",
+                subtitle: "Jogo reflexivo com mensagem social ou emocional profunda",
+                points: 5,
+                group: "indie",
+                icon: "ph-heart-half",
+                nominees: [
+                    { name: "Big Walk", studio: "House House" },
+                    { name: "Cairn", studio: "The Game Bakers" },
+                    { name: "Forever Ago", studio: "Third Shift" },
+                    { name: "Life is Strange: Reunion", studio: "Deck Nine" },
+                    { name: "Lily's World XD", studio: "Indie" },
+                    { name: "Mixtape", studio: "Beethoven & Dinosaur" }
+                ]
+            },
+            {
+                id: "ongoing_game",
+                title: "Best Ongoing Game",
+                subtitle: "Jogo em evolução contínua que mantém conteúdo de excelência",
+                points: 5,
+                group: "indie",
+                icon: "ph-arrows-clockwise",
+                nominees: [
+                    { name: "Arc Raiders", studio: "Embark Studios" },
+                    { name: "Final Fantasy XIV", studio: "Square Enix" },
+                    { name: "Fortnite", studio: "Epic Games" },
+                    { name: "No Man's Sky", studio: "Hello Games" },
+                    { name: "The Witcher 3: Wild Hunt", studio: "CD Projekt Red" }
+                ]
+            },
+            {
+                id: "community_support",
+                title: "Best Community Support",
+                subtitle: "Transparência, suporte exemplar e comunicação com a comunidade",
+                points: 5,
+                group: "indie",
+                icon: "ph-users-three",
+                nominees: [
+                    { name: "Crimson Desert", studio: "Pearl Abyss" },
+                    { name: "Helldivers 2", studio: "Arrowhead Game Studios" },
+                    { name: "No Man's Sky", studio: "Hello Games" },
+                    { name: "The Witcher 3: Wild Hunt", studio: "CD Projekt Red" },
+                    { name: "Warframe", studio: "Digital Extremes" }
+                ]
+            },
+            {
+                id: "indie_game",
+                title: "Best Independent Game",
+                subtitle: "Conquista criativa e técnica fora do sistema tradicional de grandes publishers",
+                points: 5,
+                group: "indie",
+                icon: "ph-sparkle",
+                nominees: [
+                    { name: "Big Walk", studio: "House House" },
+                    { name: "Cairn", studio: "The Game Bakers" },
+                    { name: "Denshattack!", studio: "Indie" },
+                    { name: "Mewgenics", studio: "Edmund McMillen & Tyler Glaiel" },
+                    { name: "Mina the Hollower", studio: "Yacht Club Games" }
+                ]
+            },
+            {
+                id: "debut_indie",
+                title: "Best Debut Indie Game",
+                subtitle: "Melhor jogo de estreia de um novo estúdio independente",
+                points: 5,
+                group: "indie",
+                icon: "ph-rocket-launch",
+                nominees: [
+                    { name: "Dressmaker", studio: "Debut Studio" },
+                    { name: "Esoteric Ebb", studio: "Christoffer Bodegård" },
+                    { name: "Orbitals", studio: "Debut Studio" },
+                    { name: "Replaced", studio: "Sad Cat Studios" },
+                    { name: "Silver Pines", studio: "Debut Studio" }
+                ]
+            },
+            {
+                id: "mobile_game",
+                title: "Best Mobile Game",
+                subtitle: "Melhor jogo lançado para dispositivos móveis iOS e Android",
+                points: 5,
+                group: "genre",
+                icon: "ph-device-mobile",
+                nominees: [
+                    { name: "Arknights: Endfield", studio: "Hypergryph" },
+                    { name: "Monster Hunter Outlanders", studio: "TiMi Studio / Capcom" },
+                    { name: "Neverness to Everness", studio: "Hotta Studio" },
+                    { name: "Pokémon Champions", studio: "The Pokémon Company" },
+                    { name: "Where Winds Meet", studio: "Everstone Studio" }
+                ]
+            },
+            {
+                id: "vr_ar_game",
+                title: "Best VR / AR Game",
+                subtitle: "Melhor experiência em realidade virtual ou aumentada",
+                points: 5,
+                group: "genre",
+                icon: "ph-goggles",
+                nominees: [
+                    { name: "Forefront", studio: "VR Studio" },
+                    { name: "Into the Radius 2", studio: "CM Games" },
+                    { name: "Little Nightmares VR: Altered Echoes", studio: "Bandai Namco" },
+                    { name: "Teenage Mutant Ninja Turtles: Empire City", studio: "VR Studio" },
+                    { name: "Thief VR: Legacy of Shadow", studio: "Eidos" }
+                ]
+            },
+            {
+                id: "action_game",
+                title: "Best Action Game",
+                subtitle: "Foco intenso em combate e mecânicas de ação pura",
+                points: 5,
+                group: "genre",
+                icon: "ph-sword",
+                nominees: [
+                    { name: "Ace Combat 8: Wings of Theve", studio: "Bandai Namco" },
+                    { name: "Gears of War: E-Day", studio: "The Coalition" },
+                    { name: "Onimusha: Way of the Sword", studio: "Capcom" },
+                    { name: "Phantom Blade Zero", studio: "S-GAME" },
+                    { name: "Saros", studio: "Housemarque" }
+                ]
+            },
+            {
+                id: "action_adventure",
+                title: "Best Action / Adventure Game",
+                subtitle: "Combinação de combate, exploração e resolução de desafios",
+                points: 5,
+                group: "genre",
+                icon: "ph-map-trifold",
+                nominees: [
+                    { name: "007 First Light", studio: "IO Interactive" },
+                    { name: "Control Resonant", studio: "Remedy Entertainment" },
+                    { name: "Grand Theft Auto VI", studio: "Rockstar Games" },
+                    { name: "Pragmata", studio: "Capcom" },
+                    { name: "Resident Evil Requiem", studio: "Capcom" },
+                    { name: "The Legend of Zelda: Ocarina of Time", studio: "Nintendo" }
+                ]
+            },
+            {
+                id: "rpg",
+                title: "Best RPG",
+                subtitle: "Progressão profunda de personagem, exploração e narrativa rica",
+                points: 5,
+                group: "genre",
+                icon: "ph-shield-chevron",
+                nominees: [
+                    { name: "Final Fantasy Resonance", studio: "Square Enix" },
+                    { name: "Fire Emblem: Fortune's Weave", studio: "Intelligent Systems" },
+                    { name: "Monster Hunter Stories 3: Twisted Reflection", studio: "Capcom" },
+                    { name: "The Blood of Dawnwalker", studio: "Rebel Wolves" },
+                    { name: "Trails in the Sky 2nd Chapter", studio: "Nihon Falcom" }
+                ]
+            },
+            {
+                id: "fighting_game",
+                title: "Best Fighting Game",
+                subtitle: "Melhor jogo desenhado primariamente para combate mano a mano",
+                points: 5,
+                group: "genre",
+                icon: "ph-hand-fist",
+                nominees: [
+                    { name: "2XKO", studio: "Riot Games" },
+                    { name: "Avatar Legends: The Fighting Game", studio: "Paramount" },
+                    { name: "Invincible VS", studio: "Skybound Games" },
+                    { name: "Marvel Tōkon: Fighting Souls", studio: "Marvel Games" },
+                    { name: "My Hero Academia: All's Justice", studio: "Bandai Namco" }
+                ]
+            },
+            {
+                id: "family_game",
+                title: "Best Family Game",
+                subtitle: "Melhor experiência apropriada para jogar em família",
+                points: 5,
+                group: "genre",
+                icon: "ph-smiley",
+                nominees: [
+                    { name: "Big Walk", studio: "House House" },
+                    { name: "LEGO Batman: Legacy of the Dark Knight", studio: "TT Games" },
+                    { name: "Nintendo Switch Sports Resort", studio: "Nintendo" },
+                    { name: "Pokémon Pokopia", studio: "The Pokémon Company" },
+                    { name: "Yoshi and the Mysterious Book", studio: "Nintendo" }
+                ]
+            },
+            {
+                id: "sim_strategy",
+                title: "Best Sim / Strategy Game",
+                subtitle: "Excelência em simulação em tempo real ou estratégia por turnos",
+                points: 5,
+                group: "genre",
+                icon: "ph-strategy",
+                nominees: [
+                    { name: "Mewgenics", studio: "Edmund McMillen & Tyler Glaiel" },
+                    { name: "Planet Zoo 2", studio: "Frontier Developments" },
+                    { name: "Pokémon Pokopia", studio: "The Pokémon Company" },
+                    { name: "Slay the Spire 2", studio: "Mega Crit" },
+                    { name: "Star Wars: Zero Company", studio: "Bit Reactor / Respawn" }
+                ]
+            },
+            {
+                id: "sports_racing",
+                title: "Best Sports / Racing Game",
+                subtitle: "Melhor jogo de esportes tradicionais, arcades ou corridas",
+                points: 5,
+                group: "genre",
+                icon: "ph-steering-wheel",
+                nominees: [
+                    { name: "EA Sports FC 27", studio: "EA Sports" },
+                    { name: "Forza Horizon 6", studio: "Playground Games" },
+                    { name: "Nintendo Switch Sports Resort", studio: "Nintendo" },
+                    { name: "Screamer", studio: "Milestone" },
+                    { name: "Star Wars: Galactic Racer", studio: "Lucasfilm Games" }
+                ]
+            },
+            {
+                id: "multiplayer",
+                title: "Best Multiplayer Game",
+                subtitle: "Jogabilidade cooperativa ou competitiva online de destaque",
+                points: 5,
+                group: "genre",
+                icon: "ph-game-controller",
+                nominees: [
+                    { name: "Big Walk", studio: "House House" },
+                    { name: "Call of Duty: Modern Warfare 4", studio: "Infinity Ward / Activision" },
+                    { name: "Gears of War: E-Day", studio: "The Coalition" },
+                    { name: "Marathon", studio: "Bungie" },
+                    { name: "Meccha Chameleon", studio: "Multiplayer Studio" },
+                    { name: "Orbitals", studio: "Co-op Studio" }
+                ]
+            },
+            {
+                id: "accessibility",
+                title: "Innovation in Accessibility",
+                subtitle: "Recursos de hardware ou software que permitem que mais pessoas joguem",
+                points: 5,
+                group: "indie",
+                icon: "ph-person-arms-spread",
+                nominees: [
+                    { name: "Assassin's Creed: Black Flag Resynced", studio: "Ubisoft" },
+                    { name: "Forza Horizon 6", studio: "Playground Games" },
+                    { name: "Gears of War: E-Day", studio: "The Coalition" },
+                    { name: "Marvel's Wolverine", studio: "Insomniac Games" },
+                    { name: "Rhythm Heaven Groove", studio: "Nintendo" }
+                ]
+            },
+            {
+                id: "adaptation",
+                title: "Best Adaptation",
+                subtitle: "Melhor projeto criativo que adapta uma franquia de games para outras mídias",
+                points: 5,
+                group: "indie",
+                icon: "ph-film-slate",
+                nominees: [
+                    { name: "Cyberpunk: Edgerunners Season 2", studio: "Netflix / CD Projekt Red" },
+                    { name: "Fallout Season 2", studio: "Prime Video / Bethesda" },
+                    { name: "Mortal Kombat II", studio: "Warner Bros. Pictures" },
+                    { name: "Resident Evil", studio: "Constantin Film / Capcom" },
+                    { name: "The Super Mario Galaxy Movie", studio: "Illumination / Nintendo" }
+                ]
+            },
+            {
+                id: "most_anticipated",
+                title: "Most Anticipated Game",
+                subtitle: "Jogo anunciado que mais gera expectativa para lançamento futuro",
+                points: 5,
+                group: "indie",
+                icon: "ph-fire",
+                nominees: [
+                    { name: "Fable", studio: "Playground Games" },
+                    { name: "Final Fantasy VII Revelation", studio: "Square Enix" },
+                    { name: "God of War: Laufey", studio: "Santa Monica Studio" },
+                    { name: "Resident Evil Veronica", studio: "Capcom" },
+                    { name: "The Witcher 4", studio: "CD Projekt Red" }
+                ]
+            },
+            {
+                id: "user_creation",
+                title: "Best User Creation",
+                subtitle: "Melhor mod, servidor de RP ou criação da comunidade",
+                points: 5,
+                group: "esports",
+                icon: "ph-wrench",
+                nominees: [
+                    { name: "A Dream of Silence: Revamped", studio: "Baldur's Gate 3" },
+                    { name: "Create Aeronautics", studio: "Minecraft" },
+                    { name: "NoPixel V", studio: "GTA Online" },
+                    { name: "Star Wars: Droid Tycoon", studio: "Fortnite" },
+                    { name: "TTK Testing", studio: "Roblox" }
+                ]
+            },
+            {
+                id: "esports_game",
+                title: "Best Esports Game",
+                subtitle: "Jogo que entregou a melhor experiência competitiva profissional em 2026",
+                points: 5,
+                group: "esports",
+                icon: "ph-Broadcast",
+                nominees: [
+                    { name: "Counter-Strike 2", studio: "Valve" },
+                    { name: "Dota 2", studio: "Valve" },
+                    { name: "League of Legends", studio: "Riot Games" },
+                    { name: "Mobile Legends: Bang Bang", studio: "Moonton" },
+                    { name: "Valorant", studio: "Riot Games" }
+                ]
+            },
+            {
+                id: "esports_athlete",
+                title: "Best Esports Athlete",
+                subtitle: "Pro-player mais dominante e exemplar na temporada de 2026",
+                points: 5,
+                group: "esports",
+                icon: "ph-medal",
+                nominees: [
+                    { name: "Chovy", studio: "League of Legends (Gen.G)" },
+                    { name: "Donk", studio: "Counter-Strike 2 (Team Spirit)" },
+                    { name: "Erde", studio: "Valorant" },
+                    { name: "Yatoro", studio: "Dota 2 (Team Spirit)" },
+                    { name: "ZywOo", studio: "Counter-Strike 2 (Team Vitality)" }
+                ]
+            },
+            {
+                id: "esports_team",
+                title: "Best Esports Team",
+                subtitle: "Equipe profissional de esports com os melhores resultados em 2026",
+                points: 5,
+                group: "esports",
+                icon: "ph-users-four",
+                nominees: [
+                    { name: "Gen.G", studio: "League of Legends" },
+                    { name: "LOUD", studio: "Valorant" },
+                    { name: "Team Falcons (CS2)", studio: "Counter-Strike 2" },
+                    { name: "Team Falcons (RL)", studio: "Rocket League" },
+                    { name: "Team Spirit", studio: "Dota 2" },
+                    { name: "Team Vitality", studio: "Counter-Strike 2" }
+                ]
+            },
+            {
+                id: "content_creator",
+                title: "Content Creator of the Year",
+                subtitle: "Criador ou streamer com impacto positivo e relevância em 2026",
+                points: 5,
+                group: "esports",
+                icon: "ph-video-camera",
+                nominees: [
+                    { name: "CDawgVA", studio: "Twitch / YouTube" },
+                    { name: "Cellbit", studio: "Brasil • Twitch / YouTube" },
+                    { name: "IShowSpeed", studio: "YouTube" },
+                    { name: "LilSimsie", studio: "Twitch / YouTube" },
+                    { name: "OhnePixel", studio: "Twitch / YouTube" }
+                ]
+            }
+        ];
+
+        // ============================================================================
+        // 2. CONFIGURAÇÕES DE SEGURANÇA, HORÁRIO LIMITE E ESTADO DA APLICAÇÃO
+        // ============================================================================
+        // Data oficial do The Game Awards 2026: 10 de Dezembro de 2026 às 21:30 BRT (UTC-3)
+        const TGA_CEREMONY_LOCK_TIMESTAMP = new Date("2026-12-10T21:30:00-03:00").getTime();
+        const ADMIN_MASTER_PASSWORD = "nickao2026";
+
+        let currentUserId = null;          // Slug normalizado do Nickname (ex: "nick_guigamer")
+        let currentUserName = "";          // Nome de exibição (ex: "GuiGamer")
+        let currentUserPin = "";           // PIN de 4 dígitos validado na sessão
+        let isParticipantIdentified = false;
+
+        let userPicks = {};                // { categoryId: nomineeName }
+        let officialWinners = {};          // { categoryId: nomineeName }
+        let manualLockActive = false;      // Trava manual acionada pelo Admin Nickão
+        let allParticipants = [];          // Lista sincronizada do Firestore
+        let isAdminMode = false;
+        let activeFilter = "all";
+        let searchQuery = "";
+
+        // Firebase References
+        let db = null;
+        let auth = null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'bolao-tga-2026-app';
+
+        // Helper para gerar ID único a partir do Nickname (evita duplicatas e permite login por Nick+PIN)
+        function normalizeNickToDocId(nickname) {
+            return "nick_" + nickname
+                .trim()
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9_]/g, "_");
+        }
+
+        // Verifica se as apostas estão bloqueadas (por horário oficial ou trava manual do Admin)
+        function isBettingLocked() {
+            const now = Date.now();
+            const timeExpired = now >= TGA_CEREMONY_LOCK_TIMESTAMP;
+            return manualLockActive || timeExpired;
+        }
+
+        // ============================================================================
+        // 3. CONTAGEM REGRESSIVA & ATUALIZAÇÃO DO STATUS DE TRAVA
+        // ============================================================================
+        function startCountdownTimer() {
+            const updateTimer = () => {
+                const timerEl = document.getElementById('countdown-timer');
+                const badgeEl = document.getElementById('betting-status-badge');
+                const lockedBanner = document.getElementById('locked-banner');
+                const lockedReason = document.getElementById('locked-banner-reason');
+                const adminLockBtn = document.getElementById('admin-lock-toggle-btn');
+                const adminLockText = document.getElementById('admin-lock-btn-text');
+
+                const now = Date.now();
+                const diff = TGA_CEREMONY_LOCK_TIMESTAMP - now;
+                const locked = isBettingLocked();
+
+                if (diff <= 0) {
+                    if (timerEl) timerEl.textContent = "Cerimônia Iniciada!";
+                } else {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const mins = Math.floor((diff / 1000 / 60) % 60);
+                    const secs = Math.floor((diff / 1000) % 60);
+                    if (timerEl) {
+                        timerEl.textContent = `${days}d ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+                    }
+                }
+
+                // Atualiza Badges Visuais de Trava
+                if (locked) {
+                    if (badgeEl) {
+                        badgeEl.className = "text-[10px] font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1";
+                        badgeEl.innerHTML = `<i class="ph-fill ph-lock-key"></i> Apostas Encerradas`;
+                    }
+                    if (lockedBanner) lockedBanner.classList.remove('hidden');
+                    if (lockedReason) {
+                        lockedReason.textContent = manualLockActive
+                            ? "O organizador (Nickão) trancou as apostas para a cerimônia! Nenhuma alteração de palpite é permitida agora."
+                            : "O horário limite da cerimônia (10/12 às 21:30 BRT) foi atingido! Os palpites estão oficialmente encerrados.";
+                    }
+                } else {
+                    if (badgeEl) {
+                        badgeEl.className = "text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1";
+                        badgeEl.innerHTML = `<i class="ph-fill ph-lock-open"></i> Apostas Abertas`;
+                    }
+                    if (lockedBanner) lockedBanner.classList.add('hidden');
+                }
+
+                // Atualiza botão de trava no Painel Admin
+                if (adminLockBtn && adminLockText) {
+                    if (manualLockActive) {
+                        adminLockBtn.className = "px-3.5 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all bg-amber-500 hover:bg-amber-400 text-black shadow";
+                        adminLockText.textContent = "Destrancar Apostas";
+                    } else {
+                        adminLockBtn.className = "px-3.5 py-1.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all bg-rose-600 hover:bg-rose-500 text-white shadow";
+                        adminLockText.textContent = "Trancar Apostas Agora";
+                    }
+                }
+            };
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        // ============================================================================
+        // 4. FIREBASE INITIALIZATION & REAL-TIME LISTENERS
+        // ============================================================================
+        // Configuração oficial do projeto Firebase do Nickão (tgab-54ccb)
+        const CUSTOM_FIREBASE_CONFIG = {
+            apiKey: "AIzaSyAWtR-lyQL-_ylVbh5CC17RXtBzqazqvtY",
+            authDomain: "tgab-54ccb.firebaseapp.com",
+            projectId: "tgab-54ccb",
+            storageBucket: "tgab-54ccb.firebasestorage.app",
+            messagingSenderId: "899018585764",
+            appId: "1:899018585764:web:21b709e6c10c91e56c5831",
+            measurementId: "G-BCH0TYL5Q4"
+        };
+
+        async function initAppAndFirebase() {
+            startCountdownTimer();
+            renderCategories();
+
+            try {
+                const activeConfig = CUSTOM_FIREBASE_CONFIG || (typeof __firebase_config !== 'undefined' && __firebase_config ? JSON.parse(__firebase_config) : null);
+
+                if (activeConfig) {
+                    const app = initializeApp(activeConfig);
+                    auth = getAuth(app);
+                    db = getFirestore(app);
+
+                    // Tenta autenticar caso o Authentication esteja ativo; se não estiver (auth/configuration-not-found),
+                    // conecta diretamente ao Firestore usando as regras públicas do projeto!
+                    try {
+                        if (!CUSTOM_FIREBASE_CONFIG && typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                            await signInWithCustomToken(auth, __initial_auth_token);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+                    } catch (authErr) {
+                        console.warn("Firebase Auth opcional não habilitado no console, conectando direto ao Firestore:", authErr.code);
+                    }
+
+                    setupRealtimeListeners();
+                } else {
+                    setupLocalFallbackMode();
+                }
+            } catch (error) {
+                console.error("Erro ao conectar ao Firebase, iniciando modo sessão:", error);
+                setupLocalFallbackMode();
+            }
+        }
+
+        function setupRealtimeListeners() {
+            if (!db) return;
+
+            // 1. Listen to all participants' ballots in public collection
+            const ballotsRef = collection(db, 'artifacts', appId, 'public', 'data', 'tga2026_ballots');
+            onSnapshot(ballotsRef, (snapshot) => {
+                const loaded = [];
+                snapshot.forEach((docSnap) => {
+                    const data = docSnap.data();
+                    let parsedPicks = {};
+                    if (data.picksJson) {
+                        try { parsedPicks = JSON.parse(data.picksJson); } catch (e) {}
+                    } else if (data.picks) {
+                        parsedPicks = data.picks;
+                    }
+                    loaded.push({
+                        uid: docSnap.id,
+                        name: data.name || docSnap.id,
+                        pin: data.pin || "",
+                        picks: parsedPicks,
+                        updatedAt: data.updatedAt || 0
+                    });
+
+                    // Se o participante atual já está autenticado com Nick+PIN, mantém os palpites dele sincronizados
+                    if (isParticipantIdentified && docSnap.id === currentUserId) {
+                        userPicks = parsedPicks;
+                        currentUserName = data.name || currentUserName;
+                    }
+                });
+
+                allParticipants = loaded;
+                updateUIHeaderAndStats();
+                renderCategories();
+                renderRanking();
+            }, (err) => {
+                console.warn("Aviso ao sincronizar participantes (verifique as Regras do Firestore):", err.code);
+                if (allParticipants.length === 0) {
+                    setupLocalFallbackMode();
+                }
+            });
+
+            // 2. Listen to Official TGA Winners & Global Lock State (Gabarito + Lock)
+            const officialDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'tga2026_config', 'official_winners');
+            onSnapshot(officialDocRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    if (data.winnersJson) {
+                        try { officialWinners = JSON.parse(data.winnersJson); } catch (e) {}
+                    }
+                    manualLockActive = Boolean(data.manualLockActive);
+                } else {
+                    officialWinners = {};
+                    manualLockActive = false;
+                }
+                updateUIHeaderAndStats();
+                renderCategories();
+                renderRanking();
+            }, (err) => {
+                console.warn("Aviso ao sincronizar gabarito oficial:", err.code);
+            });
+        }
+
+        function setupLocalFallbackMode() {
+            document.getElementById('sync-badge').innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Sessão Local`;
+
+            allParticipants = [
+                {
+                    uid: "nick_nickao",
+                    name: "Nickão",
+                    pin: "2026",
+                    picks: {
+                        goty: "Grand Theft Auto VI",
+                        game_direction: "Grand Theft Auto VI",
+                        narrative: "Resident Evil Requiem",
+                        art_direction: "Phantom Blade Zero",
+                        score_music: "The Legend of Zelda: Ocarina of Time",
+                        performance: "Manni L. Perez",
+                        content_creator: "Cellbit",
+                        esports_team: "LOUD"
+                    },
+                    updatedAt: Date.now() - 360000
+                },
+                {
+                    uid: "nick_carolzelda",
+                    name: "CarolZelda",
+                    pin: "1234",
+                    picks: {
+                        goty: "The Legend of Zelda: Ocarina of Time",
+                        game_direction: "Control Resonant",
+                        narrative: "007 First Light",
+                        art_direction: "The Legend of Zelda: Ocarina of Time",
+                        score_music: "The Legend of Zelda: Ocarina of Time",
+                        action_adventure: "The Legend of Zelda: Ocarina of Time",
+                        content_creator: "Cellbit"
+                    },
+                    updatedAt: Date.now() - 720000
+                }
+            ];
+
+            updateUIHeaderAndStats();
+            renderCategories();
+            renderRanking();
+        }
+
+        // ============================================================================
+        // 5. SISTEMA DE IDENTIFICAÇÃO POR NICKNAME + PIN DE 4 DÍGITOS
+        // ============================================================================
+        window.authenticateOrRegisterNickPin = async function() {
+            const nickInput = document.getElementById('nickname-input');
+            const pinInput = document.getElementById('pin-input');
+            const errorMsg = document.getElementById('profile-error-msg');
+
+            const cleanNick = nickInput.value.trim();
+            const cleanPin = pinInput.value.trim();
+
+            errorMsg.classList.add('hidden');
+
+            if (!cleanNick || cleanNick.length < 2) {
+                errorMsg.querySelector('span').textContent = "Digite um Nickname válido (mínimo 2 letras).";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            if (!/^\d{4}$/.test(cleanPin)) {
+                errorMsg.querySelector('span').textContent = "O PIN deve conter exatamente 4 números (ex: 1234).";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            const docId = normalizeNickToDocId(cleanNick);
+            const existingParticipant = allParticipants.find(p => p.uid === docId);
+
+            if (existingParticipant) {
+                // Nickname já existe no banco: Verifica se o PIN de 4 dígitos confere!
+                if (existingParticipant.pin && existingParticipant.pin !== cleanPin) {
+                    errorMsg.querySelector('span').textContent = `O Nick "${existingParticipant.name}" já está registrado com outro PIN! Digite o PIN correto ou escolha outro Nick.`;
+                    errorMsg.classList.remove('hidden');
+                    return;
+                }
+
+                // PIN correto! Carrega a cartela salva daquele participante
+                currentUserId = docId;
+                currentUserName = existingParticipant.name;
+                currentUserPin = cleanPin;
+                userPicks = { ...(existingParticipant.picks || {}) };
+                isParticipantIdentified = true;
+
+                closeProfileModal();
+                updateUIHeaderAndStats();
+                renderCategories();
+                renderRanking();
+                showToast(`Bem-vindo de volta, ${currentUserName}! Seus palpites foram carregados.`, "gold");
+            } else {
+                // Novo participante: se as apostas já estiverem encerradas, avisa
+                if (isBettingLocked() && !isAdminMode) {
+                    errorMsg.querySelector('span').textContent = "As apostas já estão encerradas para novas cartelas!";
+                    errorMsg.classList.remove('hidden');
+                    return;
+                }
+
+                // Registra novo Nickname atrelado ao PIN
+                currentUserId = docId;
+                currentUserName = cleanNick;
+                currentUserPin = cleanPin;
+                isParticipantIdentified = true;
+
+                const newEntry = {
+                    uid: currentUserId,
+                    name: currentUserName,
+                    pin: currentUserPin,
+                    picks: { ...userPicks },
+                    updatedAt: Date.now()
+                };
+                allParticipants.push(newEntry);
+
+                if (db) {
+                    try {
+                        const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'tga2026_ballots', currentUserId);
+                        await setDoc(userDocRef, {
+                            name: currentUserName,
+                            pin: currentUserPin,
+                            picksJson: JSON.stringify(userPicks),
+                            updatedAt: Date.now()
+                        }, { merge: true });
+                    } catch (e) {
+                        console.error("Erro ao registrar participante:", e);
+                    }
+                }
+
+                closeProfileModal();
+                updateUIHeaderAndStats();
+                renderCategories();
+                renderRanking();
+                showToast(`Cartela criada para ${currentUserName} (PIN: ${currentUserPin})!`, "gold");
+            }
+        };
+
+        // ============================================================================
+        // 6. SCORING CALCULATOR (GOTY = 10 PTS, OTHERS = 5 PTS)
+        // ============================================================================
+        function calculateParticipantScore(picksObj) {
+            let points = 0;
+            let exactHits = 0;
+            let gotyHit = false;
+
+            TGA_CATEGORIES.forEach(cat => {
+                const userChoice = picksObj?.[cat.id];
+                const officialWinner = officialWinners?.[cat.id];
+                if (userChoice && officialWinner && userChoice === officialWinner) {
+                    points += cat.points; // 10 for GOTY, 5 for all others
+                    exactHits += 1;
+                    if (cat.id === 'goty') gotyHit = true;
+                }
+            });
+
+            return { points, exactHits, gotyHit };
+        }
+
+        // ============================================================================
+        // 7. ACTIONS: SELECT PICK, ADMIN LOCK & OFFICIAL WINNERS
+        // ============================================================================
+        window.handleNomineeClick = async function(categoryId, nomineeName) {
+            // 1. MODO ADMIN DO NICKÃO: Define o Gabarito Oficial
+            if (isAdminMode) {
+                if (officialWinners[categoryId] === nomineeName) {
+                    delete officialWinners[categoryId];
+                    showToast(`Vencedor oficial removido de ${getCategoryTitle(categoryId)}`, "info");
+                } else {
+                    officialWinners[categoryId] = nomineeName;
+                    showToast(`🏆 Vencedor Oficial definido: ${nomineeName}!`, "success");
+                }
+
+                updateUIHeaderAndStats();
+                renderCategories();
+                renderRanking();
+
+                if (db) {
+                    try {
+                        const officialDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'tga2026_config', 'official_winners');
+                        await setDoc(officialDocRef, {
+                            winnersJson: JSON.stringify(officialWinners),
+                            manualLockActive: manualLockActive,
+                            updatedBy: "Admin Nickão",
+                            updatedAt: Date.now()
+                        }, { merge: true });
+                    } catch (e) {
+                        console.error("Erro ao salvar gabarito:", e);
+                    }
+                }
+                return;
+            }
+
+            // 2. VERIFICA SE AS APOSTAS ESTÃO TRANCADAS
+            if (isBettingLocked()) {
+                showToast("🔒 As apostas estão encerradas! Não é possível alterar palpites.", "info");
+                return;
+            }
+
+            // 3. EXIGE IDENTIFICAÇÃO (NICK + PIN) ANTES DE VOTAR
+            if (!isParticipantIdentified || !currentUserId) {
+                showToast("Identifique-se com seu Nick e PIN de 4 dígitos para salvar seus palpites!", "gold");
+                openProfileModal();
+                return;
+            }
+
+            // 4. SALVA O PALPITE DO PARTICIPANTE
+            userPicks[categoryId] = nomineeName;
+            const catObj = TGA_CATEGORIES.find(c => c.id === categoryId);
+            showToast(`Palpite salvo: ${nomineeName} (${catObj.points} pts)`, "gold");
+
+            const me = allParticipants.find(p => p.uid === currentUserId);
+            if (me) {
+                me.picks = { ...userPicks };
+                me.updatedAt = Date.now();
+            }
+
+            updateUIHeaderAndStats();
+            renderCategories();
+            renderRanking();
+
+            if (db) {
+                try {
+                    const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'tga2026_ballots', currentUserId);
+                    await setDoc(userDocRef, {
+                        name: currentUserName,
+                        pin: currentUserPin,
+                        picksJson: JSON.stringify(userPicks),
+                        updatedAt: Date.now()
+                    }, { merge: true });
+                } catch (e) {
+                    console.error("Erro ao salvar palpite na nuvem:", e);
+                }
+            }
+        };
+
+        // Alterna trava manual de apostas pelo Admin
+        window.toggleManualBettingLock = async function() {
+            if (!isAdminMode) return;
+            manualLockActive = !manualLockActive;
+
+            showToast(
+                manualLockActive 
+                    ? "🔒 Apostas TRANCADAS para todos os participantes!" 
+                    : "🔓 Apostas REABERTAS para os participantes!",
+                manualLockActive ? "info" : "success"
+            );
+
+            updateUIHeaderAndStats();
+            renderCategories();
+
+            if (db) {
+                try {
+                    const officialDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'tga2026_config', 'official_winners');
+                    await setDoc(officialDocRef, {
+                        winnersJson: JSON.stringify(officialWinners),
+                        manualLockActive: manualLockActive,
+                        updatedBy: "Admin Nickão",
+                        updatedAt: Date.now()
+                    }, { merge: true });
+                } catch (e) {
+                    console.error("Erro ao atualizar trava manual:", e);
+                }
+            }
+        };
+
+        // ============================================================================
+        // 8. UI RENDERERS
+        // ============================================================================
+        function updateUIHeaderAndStats() {
+            const votedCount = Object.keys(userPicks).length;
+            const totalCategories = TGA_CATEGORIES.length; // 30
+            const pct = Math.round((votedCount / totalCategories) * 100);
+
+            // Header User Info
+            const nameDisplay = isParticipantIdentified ? currentUserName : "Entrar com Nick + PIN";
+            document.getElementById('current-user-name').textContent = nameDisplay;
+            document.getElementById('user-avatar-letter').textContent = isParticipantIdentified 
+                ? (currentUserName[0] || 'N').toUpperCase() 
+                : '?';
+            document.getElementById('user-pin-status').innerHTML = isParticipantIdentified
+                ? `<i class="ph-fill ph-check-circle text-emerald-400"></i> PIN Verificado`
+                : `<i class="ph-fill ph-key text-tga-gold"></i> Identificar-se`;
+
+            document.getElementById('header-progress-count').textContent = votedCount;
+            document.getElementById('header-progress-bar').style.width = `${pct}%`;
+
+            // Top Stat Cards
+            document.getElementById('stat-voted').textContent = votedCount;
+            const remaining = totalCategories - votedCount;
+            document.getElementById('stat-pending-text').textContent = remaining === 0 
+                ? "Cartão 100% completo! 🎉" 
+                : `Faltam ${remaining} categoria${remaining > 1 ? 's' : ''}`;
+
+            const gotyPick = userPicks['goty'] || "Ainda não escolhido";
+            document.getElementById('stat-goty-pick').textContent = gotyPick;
+
+            const myScore = calculateParticipantScore(userPicks);
+            document.getElementById('stat-user-points').textContent = myScore.points;
+            document.getElementById('stat-user-hits').textContent = `${myScore.exactHits} acerto${myScore.exactHits === 1 ? '' : 's'} confirmado${myScore.exactHits === 1 ? '' : 's'}`;
+
+            const officialCount = Object.keys(officialWinners).length;
+            document.getElementById('stat-official-count').textContent = officialCount;
+            document.getElementById('ranking-count-badge').textContent = allParticipants.length;
+        }
+
+        function renderCategories() {
+            const container = document.getElementById('categories-container');
+            if (!container) return;
+
+            const filtered = TGA_CATEGORIES.filter(cat => {
+                // Group filter
+                if (activeFilter === 'pending') {
+                    if (userPicks[cat.id]) return false;
+                } else if (activeFilter !== 'all' && cat.group !== activeFilter) {
+                    return false;
+                }
+
+                // Search query filter
+                if (searchQuery) {
+                    const q = searchQuery.toLowerCase();
+                    const matchTitle = cat.title.toLowerCase().includes(q) || cat.subtitle.toLowerCase().includes(q);
+                    const matchNominee = cat.nominees.some(n => n.name.toLowerCase().includes(q) || n.studio.toLowerCase().includes(q));
+                    return matchTitle || matchNominee;
+                }
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full bg-tga-card border border-tga-border rounded-2xl p-12 text-center space-y-3">
+                        <i class="ph ph-magnifying-glass text-4xl text-gray-500"></i>
+                        <h3 class="text-base font-bold text-white">Nenhuma categoria encontrada</h3>
+                        <p class="text-xs text-gray-400">Tente limpar o filtro ou buscar por outro jogo indicado.</p>
+                        <button onclick="setCategoryFilter('all'); clearSearch();" class="px-4 py-2 rounded-xl bg-tga-gold text-black font-bold text-xs">
+                            Mostrar Todas as 30 Categorias
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map((cat, idx) => {
+                const isGoty = cat.id === 'goty';
+                const userSelected = userPicks[cat.id];
+                const officialWinner = officialWinners[cat.id];
+
+                // Status badge in card header
+                let statusBadge = '';
+                if (officialWinner && userSelected) {
+                    if (officialWinner === userSelected) {
+                        statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1"><i class="ph-fill ph-check-circle"></i> +${cat.points} PTS</span>`;
+                    } else {
+                        statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1"><i class="ph-fill ph-x-circle"></i> 0 PTS</span>`;
+                    }
+                } else if (userSelected) {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-tga-gold/15 text-tga-gold border border-tga-gold/30 flex items-center gap-1"><i class="ph-fill ph-check"></i> Votado</span>`;
+                } else {
+                    statusBadge = `<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-gray-800 text-gray-400 border border-gray-700">Pendente</span>`;
+                }
+
+                const nomineesHtml = cat.nominees.map(nom => {
+                    const isPicked = userSelected === nom.name;
+                    const isWinner = officialWinner === nom.name;
+                    const safeName = nom.name.replace(/'/g, "\\'");
+                    const lockedForUser = isBettingLocked() && !isAdminMode;
+
+                    let rowClass = "bg-tga-bg/90 border-tga-border hover:border-gray-600";
+                    if (isPicked) rowClass = "nominee-selected";
+                    if (isWinner) rowClass += " winner-official";
+                    if (lockedForUser) rowClass += " opacity-85 cursor-not-allowed";
+
+                    return `
+                        <button 
+                            type="button"
+                            onclick="handleNomineeClick('${cat.id}', '${safeName}')"
+                            class="w-full text-left p-3 rounded-xl border transition-all duration-150 flex items-center justify-between gap-3 group ${rowClass}"
+                        >
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 border ${
+                                    isPicked 
+                                        ? 'bg-tga-gold border-tga-gold text-black' 
+                                        : 'border-gray-600 group-hover:border-tga-gold/60'
+                                }">
+                                    ${isPicked ? '<i class="ph-bold ph-check text-xs"></i>' : ''}
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="text-xs sm:text-sm font-semibold ${isPicked ? 'text-tga-goldLight' : 'text-gray-100'} truncate">
+                                        ${nom.name}
+                                    </div>
+                                    <div class="text-[11px] text-gray-400 truncate">${nom.studio}</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-1.5 flex-shrink-0">
+                                ${isWinner ? `
+                                    <span class="px-2 py-0.5 rounded bg-emerald-500 text-black font-extrabold text-[10px] uppercase tracking-wider flex items-center gap-1">
+                                        <i class="ph-fill ph-trophy"></i> Vencedor
+                                    </span>
+                                ` : ''}
+                                ${isAdminMode && !isWinner ? `
+                                    <span class="text-[10px] text-emerald-400 opacity-0 group-hover:opacity-100 font-semibold px-2 py-0.5 rounded bg-emerald-950 border border-emerald-600/40">
+                                        Marcar Vencedor
+                                    </span>
+                                ` : ''}
+                            </div>
+                        </button>
+                    `;
+                }).join('');
+
+                return `
+                    <div class="rounded-2xl p-5 transition-all flex flex-col justify-between ${
+                        isGoty 
+                            ? 'md:col-span-2 bg-gradient-to-b from-[#1a160c] to-tga-card goty-card-glow' 
+                            : 'bg-tga-card border border-tga-border'
+                    }">
+                        <div>
+                            <!-- Category Header -->
+                            <div class="flex items-start justify-between gap-3 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                                        isGoty ? 'gold-gradient-bg text-black shadow-md shadow-tga-gold/20' : 'bg-tga-bg border border-tga-border text-tga-gold'
+                                    }">
+                                        <i class="ph-fill ${cat.icon} text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <h3 class="font-display font-bold ${isGoty ? 'text-lg sm:text-xl gold-gradient-text' : 'text-base text-white'}">
+                                                ${cat.title}
+                                            </h3>
+                                            <span class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase tracking-wider ${
+                                                isGoty ? 'bg-tga-gold text-black' : 'bg-tga-bg text-tga-gold border border-tga-gold/30'
+                                            }">
+                                                ${cat.points} Pontos
+                                            </span>
+                                        </div>
+                                        <p class="text-xs text-gray-400 mt-0.5">${cat.subtitle}</p>
+                                    </div>
+                                </div>
+                                ${statusBadge}
+                            </div>
+
+                            <!-- Nominees List -->
+                            <div class="grid ${isGoty ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5' : 'grid-cols-1 gap-2'}">
+                                ${nomineesHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderRanking() {
+            const podiumContainer = document.getElementById('ranking-podium');
+            const tableBody = document.getElementById('ranking-table-body');
+            if (!podiumContainer || !tableBody) return;
+
+            // Calculate score and sort participants
+            const enriched = allParticipants.map(p => {
+                const scoreInfo = calculateParticipantScore(p.picks);
+                const votedCount = Object.keys(p.picks || {}).length;
+                const gotyPick = p.picks?.['goty'] || 'Não votou';
+                return {
+                    ...p,
+                    points: scoreInfo.points,
+                    exactHits: scoreInfo.exactHits,
+                    gotyHit: scoreInfo.gotyHit,
+                    votedCount,
+                    gotyPick
+                };
+            }).sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
+                if (b.gotyHit !== a.gotyHit) return (b.gotyHit ? 1 : 0) - (a.gotyHit ? 1 : 0);
+                if (b.exactHits !== a.exactHits) return b.exactHits - a.exactHits;
+                return b.votedCount - a.votedCount;
+            });
+
+            // Render Top 3 Podium
+            const top3 = enriched.slice(0, 3);
+            const medalColors = [
+                { border: 'border-tga-gold', bg: 'from-amber-500/15 to-transparent', badge: 'bg-tga-gold text-black', label: '1º LUGAR' },
+                { border: 'border-slate-400/50', bg: 'from-slate-400/10 to-transparent', badge: 'bg-slate-300 text-black', label: '2º LUGAR' },
+                { border: 'border-amber-700/50', bg: 'from-amber-700/10 to-transparent', badge: 'bg-amber-600 text-white', label: '3º LUGAR' }
+            ];
+
+            podiumContainer.innerHTML = top3.map((p, i) => {
+                const style = medalColors[i];
+                const isMe = p.uid === currentUserId;
+                return `
+                    <div class="bg-gradient-to-b ${style.bg} bg-tga-bg border ${style.border} rounded-2xl p-4 flex flex-col justify-between">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="flex items-center gap-2.5">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-extrabold ${style.badge}">${style.label}</span>
+                                ${isMe ? '<span class="text-[10px] px-2 py-0.5 rounded bg-tga-gold/20 text-tga-gold font-bold">VOCÊ</span>' : ''}
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-extrabold text-white">${p.points}</span>
+                                <span class="text-xs text-gray-400 block">pontos</span>
+                            </div>
+                        </div>
+                        <div class="my-3">
+                            <div class="text-base font-bold text-white truncate">${escapeHtml(p.name)}</div>
+                            <div class="text-xs text-gray-400 mt-1 flex items-center gap-1">
+                                <i class="ph-fill ph-crown text-tga-gold"></i>
+                                <span class="truncate">GOTY: <strong class="text-gray-200">${escapeHtml(p.gotyPick)}</strong></span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between pt-3 border-t border-tga-border/60 text-xs text-gray-400">
+                            <span>${p.exactHits} acertos • ${p.votedCount}/30 votos</span>
+                            <button onclick="inspectParticipant('${p.uid}')" class="text-tga-gold hover:underline font-semibold flex items-center gap-1">
+                                Ver Cartão <i class="ph ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Render Full Table
+            tableBody.innerHTML = enriched.map((p, index) => {
+                const isMe = p.uid === currentUserId;
+                return `
+                    <tr class="hover:bg-tga-cardHover/60 transition-colors ${isMe ? 'bg-tga-gold/5' : ''}">
+                        <td class="py-3.5 px-4 font-bold text-gray-300">#${index + 1}</td>
+                        <td class="py-3.5 px-4">
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-white">${escapeHtml(p.name)}</span>
+                                ${isMe ? '<span class="px-1.5 py-0.5 text-[10px] rounded bg-tga-gold text-black font-bold">VOCÊ</span>' : ''}
+                            </div>
+                        </td>
+                        <td class="py-3.5 px-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-tga-bg border border-tga-border text-xs font-medium text-tga-goldLight">
+                                <i class="ph-fill ph-crown text-tga-gold"></i>
+                                ${escapeHtml(p.gotyPick)}
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center">
+                            <span class="text-xs font-semibold ${p.votedCount === 30 ? 'text-emerald-400' : 'text-gray-400'}">
+                                ${p.votedCount}/30
+                            </span>
+                        </td>
+                        <td class="py-3.5 px-4 text-center font-semibold text-gray-200">
+                            ${p.exactHits}
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <span class="text-base font-extrabold text-emerald-400">${p.points}</span>
+                            <span class="text-xs text-gray-500">pts</span>
+                        </td>
+                        <td class="py-3.5 px-4 text-right">
+                            <button onclick="inspectParticipant('${p.uid}')" class="px-3 py-1.5 rounded-lg bg-tga-bg hover:bg-tga-border border border-tga-border text-xs font-semibold text-gray-200 transition-colors">
+                                Ver Palpites
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // ============================================================================
+        // 7. NAVIGATION, FILTERS, MODALS & SHARE EXPORT
+        // ============================================================================
+        window.switchMainTab = function(tabName) {
+            ['palpites', 'ranking', 'regras'].forEach(t => {
+                document.getElementById(`view-${t}`).classList.toggle('hidden', t !== tabName);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (t === tabName) {
+                    btn.classList.add('border-tga-gold', 'text-tga-gold');
+                    btn.classList.remove('border-transparent', 'text-gray-400');
+                } else {
+                    btn.classList.remove('border-tga-gold', 'text-tga-gold');
+                    btn.classList.add('border-transparent', 'text-gray-400');
+                }
+            });
+        };
+
+        window.setCategoryFilter = function(filterKey) {
+            activeFilter = filterKey;
+            document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+                const isMatch = btn.getAttribute('data-filter') === filterKey;
+                if (isMatch) {
+                    btn.className = "cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-gold text-black transition-all whitespace-nowrap";
+                } else {
+                    btn.className = "cat-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-tga-bg text-gray-300 hover:text-white border border-tga-border transition-all whitespace-nowrap";
+                }
+            });
+            renderCategories();
+        };
+
+        window.handleSearch = function(val) {
+            searchQuery = val.trim();
+            document.getElementById('clear-search-btn').classList.toggle('hidden', !searchQuery);
+            renderCategories();
+        };
+
+        window.clearSearch = function() {
+            searchQuery = "";
+            document.getElementById('search-input').value = "";
+            document.getElementById('clear-search-btn').classList.add('hidden');
+            renderCategories();
+        };
+
+        // ============================================================================
+        // 9. CONTROLE DE ACESSO EXCLUSIVO AO MODO ADMIN (SENHA DO NICKÃO)
+        // ============================================================================
+        window.handleAdminAccessClick = function() {
+            if (isAdminMode) {
+                exitAdminMode();
+            } else {
+                document.getElementById('admin-password-input').value = "";
+                document.getElementById('admin-error-msg').classList.add('hidden');
+                document.getElementById('admin-login-modal').classList.remove('hidden');
+                setTimeout(() => document.getElementById('admin-password-input').focus(), 50);
+            }
+        };
+
+        window.closeAdminLoginModal = function() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        };
+
+        window.verifyAdminPassword = function() {
+            const input = document.getElementById('admin-password-input').value.trim();
+            const errorEl = document.getElementById('admin-error-msg');
+
+            if (input === ADMIN_MASTER_PASSWORD) {
+                isAdminMode = true;
+                closeAdminLoginModal();
+                document.getElementById('admin-banner').classList.remove('hidden');
+
+                const btn = document.getElementById('admin-access-btn');
+                btn.className = "px-3 py-1.5 rounded-lg border border-emerald-500 bg-emerald-950/80 text-xs font-bold text-emerald-300 flex items-center gap-1.5 transition-all";
+                document.getElementById('admin-btn-icon').className = "ph-fill ph-shield-check text-emerald-400";
+                document.getElementById('admin-btn-label').textContent = "Admin Nickão (Ativo)";
+
+                switchMainTab('palpites');
+                renderCategories();
+                showToast("Modo Admin do Nickão liberado! Você pode trancar apostas e definir o gabarito.", "success");
+            } else {
+                errorEl.classList.remove('hidden');
+            }
+        };
+
+        window.exitAdminMode = function() {
+            isAdminMode = false;
+            document.getElementById('admin-banner').classList.add('hidden');
+
+            const btn = document.getElementById('admin-access-btn');
+            btn.className = "px-3 py-1.5 rounded-lg border border-tga-border bg-tga-card hover:border-tga-gold/50 text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1.5 transition-all";
+            document.getElementById('admin-btn-icon').className = "ph-fill ph-lock-key text-tga-gold";
+            document.getElementById('admin-btn-label').textContent = "Painel do Nickão (Admin)";
+
+            renderCategories();
+            showToast("Você saiu do Modo Admin.", "info");
+        };
+
+        // Profile Modal (Nick + PIN)
+        window.openProfileModal = function() {
+            document.getElementById('nickname-input').value = currentUserName || "";
+            document.getElementById('pin-input').value = currentUserPin || "";
+            document.getElementById('profile-error-msg').classList.add('hidden');
+            document.getElementById('modal-user-votes').textContent = `${Object.keys(userPicks).length} / 30 categorias`;
+            document.getElementById('profile-modal').classList.remove('hidden');
+            setTimeout(() => document.getElementById('nickname-input').focus(), 50);
+        };
+
+        window.closeProfileModal = function() {
+            document.getElementById('profile-modal').classList.add('hidden');
+        };
+
+        // Share Modal
+        window.openShareModal = function() {
+            const votedCount = Object.keys(userPicks).length;
+            const gotyPick = userPicks['goty'] || "Não escolhido";
+            const scoreInfo = calculateParticipantScore(userPicks);
+
+            let lines = [
+                `🏆 MEUS PALPITES - BOLÃO TGA DO NICKÃO 2026 🏆`,
+                `👤 Participante: ${currentUserName || 'Anônimo'}`,
+                `👑 Palpite GOTY (10 pts): ${gotyPick}`,
+                `📊 Preenchimento: ${votedCount}/30 categorias (Pontuação Atual: ${scoreInfo.points} pts)`,
+                `----------------------------------------`
+            ];
+
+            TGA_CATEGORIES.forEach(cat => {
+                const pick = userPicks[cat.id];
+                if (pick) {
+                    lines.push(`• ${cat.title} (${cat.points} pts): ${pick}`);
+                }
+            });
+
+            if (votedCount === 0) {
+                lines.push(`Ainda não selecionei meus palpites!`);
+            }
+
+            document.getElementById('share-textarea').value = lines.join('\n');
+            document.getElementById('share-modal').classList.remove('hidden');
+        };
+
+        window.closeShareModal = function() {
+            document.getElementById('share-modal').classList.add('hidden');
+        };
+
+        window.copyShareText = function() {
+            const textarea = document.getElementById('share-textarea');
+            textarea.select();
+            document.execCommand('copy');
+            showToast("Resumo copiado! Agora é só colar no Discord ou WhatsApp.", "gold");
+        };
+
+        // Inspect Participant Ballot Modal
+        window.inspectParticipant = function(uid) {
+            const participant = allParticipants.find(p => p.uid === uid);
+            if (!participant) return;
+
+            const scoreInfo = calculateParticipantScore(participant.picks);
+            const votedCount = Object.keys(participant.picks || {}).length;
+
+            document.getElementById('inspect-modal-title').textContent = `CARTÃO DE ${participant.name.toUpperCase()}`;
+            document.getElementById('inspect-modal-subtitle').textContent = `${scoreInfo.points} pontos acumulados • ${scoreInfo.exactHits} acertos exatos • ${votedCount}/30 categorias preenchidas`;
+
+            const listEl = document.getElementById('inspect-modal-list');
+            listEl.innerHTML = TGA_CATEGORIES.map(cat => {
+                const pick = participant.picks?.[cat.id];
+                const official = officialWinners?.[cat.id];
+                let badge = `<span class="text-gray-500">Sem palpite</span>`;
+
+                if (pick && official) {
+                    if (pick === official) {
+                        badge = `<span class="text-emerald-400 font-bold">+${cat.points} pts ✔</span>`;
+                    } else {
+                        badge = `<span class="text-rose-400">Errou (Vencedor: ${official})</span>`;
+                    }
+                } else if (pick) {
+                    badge = `<span class="text-tga-gold font-semibold">${cat.points} pts em jogo</span>`;
+                }
+
+                return `
+                    <div class="pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                        <div>
+                            <span class="text-gray-400 text-xs">${cat.title}:</span>
+                            <span class="font-semibold text-white ml-1">${pick ? escapeHtml(pick) : '—'}</span>
+                        </div>
+                        <div class="text-xs">${badge}</div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('inspect-modal').classList.remove('hidden');
+        };
+
+        window.closeInspectModal = function() {
+            document.getElementById('inspect-modal').classList.add('hidden');
+        };
+
+        // ============================================================================
+        // 8. UTILITIES (TOASTS & HELPERS)
+        // ============================================================================
+        function getCategoryTitle(catId) {
+            const cat = TGA_CATEGORIES.find(c => c.id === catId);
+            return cat ? cat.title : catId;
+        }
+
+        function escapeHtml(str) {
+            if (!str) return "";
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        function showToast(message, type = "gold") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+
+            let colorClasses = "bg-tga-card border-tga-gold text-white";
+            let icon = "ph-check-circle text-tga-gold";
+            if (type === "success") {
+                colorClasses = "bg-emerald-950 border-emerald-500 text-emerald-100";
+                icon = "ph-trophy text-emerald-400";
+            } else if (type === "info") {
+                colorClasses = "bg-tga-card border-gray-600 text-gray-200";
+                icon = "ph-info text-gray-400";
+            }
+
+            toast.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-xl border shadow-xl text-xs sm:text-sm font-medium transition-all duration-300 ${colorClasses}`;
+            toast.innerHTML = `<i class="ph-fill ${icon} text-lg"></i> <span>${message}</span>`;
+
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(8px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 2600);
+        }
+
+        // Start App on Load
+        window.addEventListener('DOMContentLoaded', initAppAndFirebase);
+    </script>
+</body>
+</html>
